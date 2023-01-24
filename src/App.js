@@ -1,9 +1,13 @@
-
+import Header from './components/Header';
 import './App.css';
+import AddPlan from './components/AddPlan';
 
 function App() {
   return (
     <>
+      <Header/>
+
+      <AddPlan/>
     </>
   );
 }
