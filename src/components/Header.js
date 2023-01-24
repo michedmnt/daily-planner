@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="wrapper">
-        <h2 className="logo">Daily Planner</h2>
+        <h2 className="logo">Daily<br></br>Planner</h2>
         <h1 className="date">
 
           {currentDate.toLocaleDateString(undefined, options)}

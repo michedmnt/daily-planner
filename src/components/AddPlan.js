@@ -61,28 +61,32 @@ const AddPlan = () => {
 
   return (
     <>
-    <section>
-      <form action="" onSubmit= { handleSubmit }>
-        <label htmlFor="planInput"> Enter a plan for today:</label>
+    <section className="addPlan">
+      <div className="wrapper">
+        <form action="" onSubmit= { handleSubmit }>
+          <label htmlFor="planInput"> Enter a plan for today:</label>
 
-        <input type="text" name="planInput" onChange= { handleChange } value={textInput} />
-        <button>Add Plan</button>
-      </form>
+          <input id="inputPlan" type="text" name="planInput" onChange= { handleChange } value={textInput} />
+          <button>Add Plan</button>
+        </form>
+      </div>
     </section>
-    <section>
-      <ul>
-        {
+    <section className="listOfPlans">
+      <div className="wrapper">
+        <ul>
+          {
 
-          plans.map ( (plan) => {
-          return <li key={plan.id}>
-              {plan.plan}
-              <button onClick = {() => { handleClick(plan.id) }}>Done ✅</button>
-            </li>
+            plans.map ( (plan) => {
+            return <li key={plan.id}>
+                {plan.plan}
+                <button onClick = {() => { handleClick(plan.id) }}>✅</button>
+              </li>
 
-          } )
-        }
-          
-      </ul>
+            } )
+          }
+            
+        </ul>
+      </div>
     </section>
     
     </>
