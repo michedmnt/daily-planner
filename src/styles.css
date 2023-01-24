@@ -291,7 +291,6 @@ section {
 }
 header .wrapper {
   display: flex;
-  justify-content: space-between;
 }
 header .wrapper .logo {
   font-family: "Pacifico", cursive;
@@ -302,6 +301,9 @@ header .wrapper .logo {
 header .wrapper .date {
   font-family: "Montserrat", san-serif;
   font-size: 3rem;
+  text-align: center;
+  width: 100%;
+  padding-right: 3em;
 }
 
 button {

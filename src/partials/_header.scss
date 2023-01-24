@@ -1,7 +1,6 @@
 
 header .wrapper {
   display: flex;
-  justify-content: space-between;
   
   .logo {
     font-family: $logoFont;
@@ -13,6 +12,9 @@ header .wrapper {
   .date {
     font-family: $baseFont;
     font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    padding-right: 3em;
   }
 
 }
