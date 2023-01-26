@@ -1,3 +1,4 @@
+// imported components, and css style sheet
 import Header from './components/Header';
 import './styles.css';
 import AddPlan from './components/AddPlan';
