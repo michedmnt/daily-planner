@@ -26,15 +26,17 @@ const AddPlan = () => {
       const dbValue = dbResponse.val();
 
       const arrayOfPlans = [];
+      
 
       for (let propertyKey in dbValue) {
         // pushed every plan within the object into an empty array
         arrayOfPlans.push({
           plan: dbValue[propertyKey],
-          id: propertyKey
+          id: propertyKey,
         });
       };
 
+      console.log(arrayOfPlans);
       // taken the array of daily plans that was created and saved it to state, now that it has been updated
       setPlans(arrayOfPlans);
     });
@@ -69,6 +71,7 @@ const AddPlan = () => {
     const db = getDatabase(firebase);
     const dbRef = ref(db);
 
+
     push(dbRef, textInput);
 
     setTextInput("");
@@ -84,26 +87,26 @@ const AddPlan = () => {
       <div className="wrapper">
         <form action="" onSubmit= { handleSubmit }>
           <label htmlFor="planInput"> Enter a plan for today:</label>
-          <select id="times" onChange = { handleChange } value={ optionSelection }>
-            <option value="placeholder" disabled >Pick a time slot</option>
-            <option value="6:00AM - 7:00AM:">6:00AM - 7:00AM</option>
-            <option value="7:00AM - 8:00AM:">7:00AM - 8:00AM</option>
-            <option value="8:00AM - 9:00AM:">8:00AM - 9:00AM</option>
-            <option value="8:00AM - 9:00AM:">9:00AM - 10:00AM</option>
-            <option value="10:00AM - 11:00AM:">10:00AM - 11:00AM</option>
-            <option value="11:00AM - 12:00PM:">11:00AM - 12:00PM</option>
-            <option value="12:00PM - 1:00PM:">12:00PM - 1:00PM</option>
-            <option value="1:00PM - 2:00PM:">1:00PM - 2:00PM</option>
-            <option value="2:00PM - 3:00PM:">2:00PM - 3:00PM</option>
-            <option value="3:00PM - 4:00PM:">3:00PM - 4:00PM</option>
-            <option value="4:00PM - 5:00PM:">4:00PM - 5:00PM</option>
-            <option value="5:00PM - 6:00PM:">5:00PM - 6:00PM</option>
-            <option value="6:00PM - 7:00PM:">6:00PM - 7:00PM</option>
-            <option value="7:00PM - 8:00PM:">7:00PM - 8:00PM</option>
-            <option value="9:00PM - 10:00PM:">9:00PM - 10:00PM</option>
-            <option value="8:00PM - 9:00PM:">8:00PM - 9:00PM</option>
+          <select onChange = { handleChange } value={ optionSelection }>
+            <option  value="placeholder" disabled >Pick a time slot</option>
+            <option id="1" value="6:00AM - 7:00AM:">6:00AM - 7:00AM</option>
+            <option id="2" value="7:00AM - 8:00AM:">7:00AM - 8:00AM</option>
+            <option id="3" value="8:00AM - 9:00AM:">8:00AM - 9:00AM</option>
+            <option id="4" value="8:00AM - 9:00AM:">9:00AM - 10:00AM</option>
+            <option id="5" value="10:00AM - 11:00AM:">10:00AM - 11:00AM</option>
+            <option id="6" value="11:00AM - 12:00PM:">11:00AM - 12:00PM</option>
+            <option id="7" value="12:00PM - 1:00PM:">12:00PM - 1:00PM</option>
+            <option id="8" value="1:00PM - 2:00PM:">1:00PM - 2:00PM</option>
+            <option id="9" value="2:00PM - 3:00PM:">2:00PM - 3:00PM</option>
+            <option id="10" value="3:00PM - 4:00PM:">3:00PM - 4:00PM</option>
+            <option id="11" value="4:00PM - 5:00PM:">4:00PM - 5:00PM</option>
+            <option id="12" value="5:00PM - 6:00PM:">5:00PM - 6:00PM</option>
+            <option id="13" value="6:00PM - 7:00PM:">6:00PM - 7:00PM</option>
+            <option id="14" value="7:00PM - 8:00PM:">7:00PM - 8:00PM</option>
+            <option id="15" value="8:00PM - 9:00PM:">8:00PM - 9:00PM</option>
+            <option id="16" value="9:00PM - 10:00PM:">9:00PM - 10:00PM</option>
           </select>
-          <input id="inputPlan" type="text" name="planInput" onChange= { handleChange } value={textInput} />
+          <input id="inputPlan" type="text" name="planInput" required onChange= { handleChange } value={textInput} />
           <button>Add Plan</button>
         </form>
       </div>
@@ -118,7 +121,6 @@ const AddPlan = () => {
                 {plan.plan}
                 <button onClick = {() => { handleClick(plan.id) }}>✅</button>
               </li>
-
             } )
           }
             
