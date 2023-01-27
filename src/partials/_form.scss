@@ -1,6 +1,6 @@
-button {
+button,
+ select {
   border: 2px solid $accentColor;
-  border-radius: 50%;
   font-size: 15px;
   font-weight: bold;
   padding: 5px;
@@ -16,9 +16,15 @@ button {
   }
 }
 
+option {
+  background-color: $solidWhite;
+  color: $accentColor;
+}
+
 #inputPlan {
   width: 500px;
   margin-left: 10px;
+  line-height: 2rem;
 }
 
 .addPlan {

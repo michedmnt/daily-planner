@@ -12,6 +12,9 @@ const AddPlan = () => {
   // initialize another state to keep track of the internal state of the text input
   const [ textInput, setTextInput ] = useState("");
 
+  // initialize another state to keep track of times from options selected
+  const [ optionSelection, setOptionSelection ] = useState("");
+
   // defined a side effect which will run only ONE time on component load (any further updates to the database will be listened to for via the firebase onValue module)
   useEffect( () => {
 
@@ -42,7 +45,6 @@ const AddPlan = () => {
   const handleClick = (plankey) => {
 
     const db = getDatabase(firebase);
-
     const dbRef = ref(db, `/${plankey}`);
 
     remove(dbRef);
@@ -52,7 +54,10 @@ const AddPlan = () => {
   // defined a event handler which will update state every time the user types within the input with the value of what they have typed
   const handleChange = (event) => {
 
-    setTextInput(event.target.value)
+    setOptionSelection(event.target.value);
+
+    setTextInput(event.target.value);
+
 
   };
 
@@ -68,6 +73,7 @@ const AddPlan = () => {
 
     setTextInput("");
 
+
   };
 
   return (
@@ -78,7 +84,25 @@ const AddPlan = () => {
       <div className="wrapper">
         <form action="" onSubmit= { handleSubmit }>
           <label htmlFor="planInput"> Enter a plan for today:</label>
-
+          <select id="times" onChange = { handleChange } value={ optionSelection }>
+            <option value="placeholder" disabled >Pick a time slot</option>
+            <option value="6:00AM - 7:00AM:">6:00AM - 7:00AM</option>
+            <option value="7:00AM - 8:00AM:">7:00AM - 8:00AM</option>
+            <option value="8:00AM - 9:00AM:">8:00AM - 9:00AM</option>
+            <option value="8:00AM - 9:00AM:">9:00AM - 10:00AM</option>
+            <option value="10:00AM - 11:00AM:">10:00AM - 11:00AM</option>
+            <option value="11:00AM - 12:00PM:">11:00AM - 12:00PM</option>
+            <option value="12:00PM - 1:00PM:">12:00PM - 1:00PM</option>
+            <option value="1:00PM - 2:00PM:">1:00PM - 2:00PM</option>
+            <option value="2:00PM - 3:00PM:">2:00PM - 3:00PM</option>
+            <option value="3:00PM - 4:00PM:">3:00PM - 4:00PM</option>
+            <option value="4:00PM - 5:00PM:">4:00PM - 5:00PM</option>
+            <option value="5:00PM - 6:00PM:">5:00PM - 6:00PM</option>
+            <option value="6:00PM - 7:00PM:">6:00PM - 7:00PM</option>
+            <option value="7:00PM - 8:00PM:">7:00PM - 8:00PM</option>
+            <option value="9:00PM - 10:00PM:">9:00PM - 10:00PM</option>
+            <option value="8:00PM - 9:00PM:">8:00PM - 9:00PM</option>
+          </select>
           <input id="inputPlan" type="text" name="planInput" onChange= { handleChange } value={textInput} />
           <button>Add Plan</button>
         </form>
@@ -95,8 +119,8 @@ const AddPlan = () => {
                 <button onClick = {() => { handleClick(plan.id) }}>✅</button>
               </li>
 
-            } );
-          };
+            } )
+          }
             
         </ul>
       </div>

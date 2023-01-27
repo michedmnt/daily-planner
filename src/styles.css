@@ -306,9 +306,9 @@ header .wrapper .date {
   padding-right: 3em;
 }
 
-button {
+button,
+select {
   border: 2px solid #f47f96;
-  border-radius: 50%;
   font-size: 15px;
   font-weight: bold;
   padding: 5px;
@@ -317,14 +317,22 @@ button {
   color: #f47f96;
   transition: 0.3s;
 }
-button:hover, button:focus {
+button:hover, button:focus,
+select:hover,
+select:focus {
   background-color: #f47f96;
   color: #fff;
+}
+
+option {
+  background-color: #fff;
+  color: #f47f96;
 }
 
 #inputPlan {
   width: 500px;
   margin-left: 10px;
+  line-height: 2rem;
 }
 
 .addPlan {
