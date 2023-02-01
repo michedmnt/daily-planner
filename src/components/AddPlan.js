@@ -77,7 +77,6 @@ const AddPlan = () => {
  
   };
   
-
   // sorted and mapped through array, to allow times to appear in correct order on the page when you have added your plans to the day
   const compare = (a, b) => {
     if (a.plan > b.plan) {
@@ -97,7 +96,6 @@ const AddPlan = () => {
               </li>
   } )
 
-
   return (
     <>
     {/* placed the events within their places for the changes to happen, and defined options for drop down menu  */}
@@ -106,10 +104,10 @@ const AddPlan = () => {
         <form action="" onSubmit= { handleSubmit }>
           <label htmlFor="planInput"> Enter a plan for today:</label>
           <select onChange = { handleChange } value={ optionSelection }>
-            <option  value="placeholder" disabled >Pick a time slot</option>
-            <option value="06:00 - 7:00:">6:00AM - 7:00AM</option>
-            <option value="07:00 - 8:00:">7:00AM - 8:00AM</option>
-            <option value="08:00 - 9:00:">8:00AM - 9:00AM</option>
+            <option  value="placeholder" disabled>Pick a time slot</option>
+            <option value="06:00 - 07:00:">6:00AM - 7:00AM</option>
+            <option value="07:00 - 08:00:">7:00AM - 8:00AM</option>
+            <option value="08:00 - 09:00:">8:00AM - 9:00AM</option>
             <option value="09:00 - 10:00:">9:00AM - 10:00AM</option>
             <option value="10:00 - 11:00:">10:00AM - 11:00AM</option>
             <option value="11:00 - 12:00:">11:00AM - 12:00PM</option>
