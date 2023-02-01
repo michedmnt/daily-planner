@@ -1,0 +1,67 @@
+@media (max-width: 1168px) {
+  .wrapper {
+    max-width: 1150px;
+    width: 90%;
+  }
+
+  input, form button {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1050px) {
+  header .wrapper {
+    .logo {
+       font-size: 1.5rem;
+     }
+
+     .date {
+      font-size: 2.5rem;
+      padding-top: 10px;
+     }
+  }
+
+  button,
+  select, label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 990px) {
+  input {
+    width: 600px;
+  }
+}
+
+@media (max-width: 775px) {
+  input, 
+  .addBtn,
+  select,
+  .item {
+    width: 100%;
+    margin: 0;
+    margin-top: 5px;
+  
+  }
+
+  label {
+    font-size: 1rem;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  header .wrapper {
+    .logo {
+      font-size: 1rem;
+    }
+    .date {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .item,
+  input {
+    font-size: 0.75rem;
+  }
+}

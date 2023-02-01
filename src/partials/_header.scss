@@ -1,0 +1,19 @@
+
+header .wrapper {
+  display: flex;
+  
+  .logo {
+    font-family: $logoFont;
+    font-size: 2rem;
+    color: $accentColor;
+    padding-top: 20px;
+  }
+  
+  .date {
+    font-family: $baseFont;
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+  }
+
+}

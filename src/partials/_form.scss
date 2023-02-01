@@ -1,0 +1,32 @@
+button,
+ select {
+  border: 2px solid $accentColor;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px;
+  margin-left: 15px;
+  background-color: $solidWhite;
+  color: $accentColor;
+  transition: 0.3s;
+
+  &:hover,
+  &:focus {
+    background-color: $accentColor;
+    color: $solidWhite;
+  }
+}
+
+option {
+  background-color: $solidWhite;
+  color: $accentColor;
+}
+
+input {
+  width: 500px;
+  margin-left: 10px;
+  line-height: 2rem;
+}
+
+.addPlan {
+  text-align: center;
+}
