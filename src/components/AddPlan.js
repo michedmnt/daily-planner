@@ -36,7 +36,6 @@ const AddPlan = () => {
         });
       };
 
-      console.log(arrayOfPlans);
       // taken the array of daily plans that was created and saved it to state, now that it has been updated
       setPlans(arrayOfPlans);
     });
@@ -75,39 +74,58 @@ const AddPlan = () => {
     push(dbRef, textInput);
 
     setTextInput("");
-
-
+ 
   };
+  
+
+  // sorted and mapped through array, to allow times to appear in correct order on the page when you have added your plans to the day
+  const compare = (a, b) => {
+    if (a.plan > b.plan) {
+      return 1;
+    }
+    if (a.plan < b.plan) {
+      return -1;
+    }
+    return 0
+  }
+
+  let sortedPlans = plans.sort(compare)
+    .map( (plan) => {
+    return <li key={plan.id} className="item">
+                {plan.plan}
+                <button className="done" onClick = {() => { handleClick(plan.id) }}>✅</button>
+              </li>
+  } )
+
 
   return (
     <>
-
-    {/* placed the events within their places for the changes to happen  */}
+    {/* placed the events within their places for the changes to happen, and defined options for drop down menu  */}
     <section className="addPlan">
       <div className="wrapper">
         <form action="" onSubmit= { handleSubmit }>
           <label htmlFor="planInput"> Enter a plan for today:</label>
           <select onChange = { handleChange } value={ optionSelection }>
             <option  value="placeholder" disabled >Pick a time slot</option>
-            <option id="1" value="6:00AM - 7:00AM:">6:00AM - 7:00AM</option>
-            <option id="2" value="7:00AM - 8:00AM:">7:00AM - 8:00AM</option>
-            <option id="3" value="8:00AM - 9:00AM:">8:00AM - 9:00AM</option>
-            <option id="4" value="8:00AM - 9:00AM:">9:00AM - 10:00AM</option>
-            <option id="5" value="10:00AM - 11:00AM:">10:00AM - 11:00AM</option>
-            <option id="6" value="11:00AM - 12:00PM:">11:00AM - 12:00PM</option>
-            <option id="7" value="12:00PM - 1:00PM:">12:00PM - 1:00PM</option>
-            <option id="8" value="1:00PM - 2:00PM:">1:00PM - 2:00PM</option>
-            <option id="9" value="2:00PM - 3:00PM:">2:00PM - 3:00PM</option>
-            <option id="10" value="3:00PM - 4:00PM:">3:00PM - 4:00PM</option>
-            <option id="11" value="4:00PM - 5:00PM:">4:00PM - 5:00PM</option>
-            <option id="12" value="5:00PM - 6:00PM:">5:00PM - 6:00PM</option>
-            <option id="13" value="6:00PM - 7:00PM:">6:00PM - 7:00PM</option>
-            <option id="14" value="7:00PM - 8:00PM:">7:00PM - 8:00PM</option>
-            <option id="15" value="8:00PM - 9:00PM:">8:00PM - 9:00PM</option>
-            <option id="16" value="9:00PM - 10:00PM:">9:00PM - 10:00PM</option>
+            <option value="06:00 - 7:00:">6:00AM - 7:00AM</option>
+            <option value="07:00 - 8:00:">7:00AM - 8:00AM</option>
+            <option value="08:00 - 9:00:">8:00AM - 9:00AM</option>
+            <option value="09:00 - 10:00:">9:00AM - 10:00AM</option>
+            <option value="10:00 - 11:00:">10:00AM - 11:00AM</option>
+            <option value="11:00 - 12:00:">11:00AM - 12:00PM</option>
+            <option value="12:00 - 13:00:">12:00PM - 1:00PM</option>
+            <option value="13:00 - 14:00:">1:00PM - 2:00PM</option>
+            <option value="14:00 - 15:00:">2:00PM - 3:00PM</option>
+            <option value="15:00 - 16:00:">3:00PM - 4:00PM</option>
+            <option value="16:00 - 17:00:">4:00PM - 5:00PM</option>
+            <option value="17:00 - 18:00:">5:00PM - 6:00PM</option>
+            <option value="18:00 - 19:00:">6:00PM - 7:00PM</option>
+            <option value="19:00 - 20:00:">7:00PM - 8:00PM</option>
+            <option value="20:00 - 21:00:">8:00PM - 9:00PM</option>
+            <option value="21:00 - 22:00:">9:00PM - 10:00PM</option>
           </select>
           <input id="inputPlan" type="text" name="planInput" required onChange= { handleChange } value={textInput} />
-          <button>Add Plan</button>
+          <button className="addBtn">Add Plan</button>
         </form>
       </div>
     </section>
@@ -115,21 +133,13 @@ const AddPlan = () => {
       <div className="wrapper">
         <ul>
           {
-            // mapped through the daily plans pieces of state to generate <li>s for each plan
-            plans.map ( (plan) => {
-            return <li key={plan.id}>
-                {plan.plan}
-                <button onClick = {() => { handleClick(plan.id) }}>✅</button>
-              </li>
-            } )
+            sortedPlans
           }
             
         </ul>
       </div>
-    </section>
-    
+    </section> 
     </>
-
   )
 }
 
